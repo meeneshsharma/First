@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://first-backend-h9cm.onrender.com/api", 
+  baseURL: "https://first-backend-h5i7.onrender.com/api", 
 });
 
 // Profile

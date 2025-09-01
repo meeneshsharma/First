@@ -5,7 +5,9 @@ import {
   createProfile,
   updateProfile,
   getBySkill,
-  getProjects
+  getProjects,
+  createProject,
+  updateProject
 } from "../controllers/profileController.js";
 
 const router = express.Router();
@@ -17,5 +19,7 @@ router.put("/profile", updateProfile);
 
 router.get("/skills", getBySkill);
 router.get("/projects", getProjects);
+router.post("/projects", createProject);
+router.put("/projects/:id", updateProject);
 
-export default router;
+export default router;   

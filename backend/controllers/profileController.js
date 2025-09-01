@@ -36,3 +36,26 @@ export const getProjects = async (req, res) => {
   const profile = await Profile.findOne();
   res.json(profile?.projects || []);
 };
+
+
+
+// CREATE project
+export const createProject = async (req, res) => {
+  const profile = await Profile.findOne();
+  profile.projects.push(req.body);
+  await profile.save();
+  res.status(201).json(profile.projects);
+};
+
+// UPDATE project
+export const updateProject = async (req, res) => {
+  const { id } = req.params;
+  const profile = await Profile.findOne();
+
+  const project = profile.projects.id(id);
+  if (!project) return res.status(404).json({ message: "Project not found" });
+
+  Object.assign(project, req.body);
+  await profile.save();
+  res.json(project);
+};

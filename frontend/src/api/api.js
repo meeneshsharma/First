@@ -13,6 +13,8 @@ export const getBySkill = (skill) => API.get(`/skills?skill=${skill}`);
 
 // Projects
 export const getProjects = () => API.get("/projects");
+export const createProject = (data) => API.post("/projects", data);
+export const updateProject = (id, data) => API.put(`/projects/${id}`, data);
 
 // Health Check
 export const checkHealth = () => API.get("/health");
